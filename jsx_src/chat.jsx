@@ -4,7 +4,7 @@ var ChatRoom = React.createClass({
 	}, 
 	componentDidMount: function () {
 	  this.loadChatFromServer()
-	  setInterval(this.loadChatFromServer, this.prop.interval)
+	  setInterval(this.loadChatFromServer, this.props.interval)
 	},
 	loadChatFromServer: function(){
 		$.get(this.props.url).done(function(data){
