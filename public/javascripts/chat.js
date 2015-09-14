@@ -8,7 +8,6 @@ var ChatRoom = React.createClass({
 	},
 	componentDidMount: function componentDidMount() {
 		this.loadChatFromServer();
-		debugger;
 		setInterval(this.loadChatFromServer, this.props.interval);
 	},
 	loadChatFromServer: function loadChatFromServer() {
