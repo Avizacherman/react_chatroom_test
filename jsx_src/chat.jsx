@@ -4,11 +4,13 @@ var ChatRoom = React.createClass({
 	}, 
 	componentDidMount: function () {
 	  this.loadChatFromServer()
+	  setInterval(this.loadChatFromServer, this.prop.interval)
 	},
 	loadChatFromServer: function(){
 		$.get(this.props.url).done(function(data){
 
 			this.setState({data: data})
+
 		}.bind(this))
 	},
 	chatSubmit: function(chatData){
@@ -99,6 +101,6 @@ var ChatForm = React.createClass({
 })
 
 React.render(
-	<ChatRoom url="/chatroom/" />,
+	<ChatRoom url="/chatroom/" interval={2000}/>,
   document.getElementById('content')
 	)
